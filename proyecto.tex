@@ -1,0 +1,152 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{vmargin}% Margenes 
+\usepackage{amssymb,mathtools,amsmath}% Simbolos matematicos
+\usepackage{enumitem}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\setmargins{2.5cm}% Margen izquierdo
+{1.5cm}% margen superior
+{16.5cm}% anchura del texto
+{23.42cm}% altura del texto
+{10pt}% altura de los encabezados
+{1cm}% espacio entre el texto y los encabezados
+{0pt}% altura del pie de página
+{2cm}% espacio entre el texto y el pie de página
+
+\title{TALLER}
+\author{ }
+\date{October 2022}
+
+\begin{document}
+
+
+%XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    \begin{titlepage}
+        \begin{center}
+        \large
+        {
+            \textsc{\Large{ANÁLISIS DE LOS FRACTALES DESDE EL ÁLGEBRA LINEAL}}
+            \vfill
+            Daniel Arturo Silva Oviedo
+            \vfill
+            \includegraphics[width=0.4\textwidth]{usalogo.jpg}
+            \vfill
+            \vspace{0.8cm}
+            Matemáticas\\
+            Universidad Sergio Arboleda\\
+            Bogotá, Colombia\\
+            2023
+        }
+        \end{center}
+    \end{titlepage}
+%XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    \pagestyle{empty}
+    \large{
+        \begin{itemize}
+            \item[1.] \textbf{Descripción}
+            
+            \justifying{
+                Para explicar cual es el propósito de este proyecto necesitamos desarrollar el concepto de fractal, a pesar de que actualmente no hay una definición rigurosa haremos una ``descripción" de que es un fractal, es una forma o figura con dimensión racional usualmente autosimilar, para el proyecto tomaremos en cuenta los fractales que podemos expresar como conjuntos de puntos sobre el plano complejo, por ejemplo, los fractales generados por el metodo de Mandelbrot o el metodo de Julia, también nombrados como fractales del tipo Julia o tipo Mandelbrot.
+
+                Comprobaremos si se puede construir una estructura algebraica sobre los fractales expresados como conjuntos, si hay una o mas estructuras estudiaremos como se comportan.
+            }
+            \item[2.]\textbf{Conceptos matematicos}
+            
+            \justifying{
+            
+            Elijamos un número complejo $c$ y una función $f:\mathbb{C}\rightarrow\mathbb{C}$, entonces definamos la función $f_c:\mathbb{C} \rightarrow\mathbb{C}$ : $z\mapsto f_c(z)$ con $f_c(z)=f(z)+c$.
+            
+            Con la función $f_c$ podremos construir la sucesión que usaremos para describir el metodo de Julia, por practicidad llamaremos a la sucesión cómo ``la sucesión de los fractales de Julia".
+
+            \textbf{Sucesión de los fractales de Julia}
+
+            Sea $j\in\mathbb{N}$ tal que $j=n+1$ siendo $n$ un número natural.
+
+            Sea $\{z_j\}:\mathbb{N}\rightarrow\mathbb{C}$ una función definida de $j\mapsto z_j$; si consideremos a $z\in\mathbb{C}$, entonces:
+
+            \hspace*{0,5cm}$i)  z_0 =  z$\\
+            \hspace*{1cm}$ii) z_{n+1} = f_c(z_n)$
+
+            De esta forma $\{z_j\}$ es la sucesión del fractal de Julia en $c$ y $f$ .\\
+
+            Podemos describir de forma similar a la ``sucesión de los fractales de Mandelbrot'', si tomamos a la función $f$ previamente elegida entonces podemos proceder a explicar en que consiste la sucesión.
+
+            \textbf{Sucesión de los fractales de Mandelbrot}
+
+            Sea $c\in\mathbb{C}$ y $m\in\mathbb{N}$ tal que $m=n+1$ siendo $n$ un número natural.
+
+            Sea $\{z_m\}:\mathbb{N}\rightarrow\mathbb{C}$ una función definida como $m\mapsto z_m$:
+
+            \hspace*{0,5cm}$i)  z_0 =  0$\\
+            \hspace*{1cm}$ii) z_{n+1} = f(z_n)+c$
+
+            De esta forma $\{z_m\}$ es la sucesión del fractal de Mandelbrot en $f$.
+
+            \textbf{Sucesión acotada}
+
+            Decimos que una sucesión $\{z_n\}$ esta acotada si y solo sí existen el $min(\{z_n\})$ y $max(\{z_n\})$, posteriormente describiremos bajo que relación de orden tomaremos los minimos y maximos.
+
+
+            \textbf{Método de Julia}\\
+            Sea $\{z_j\}$ una sucesión del fractal de Julia en $z$ y $f$, entonces, sea el conjunto $\mathcal{J}_{f,c}$ definido como:
+            $$\mathcal{J}_{f,c} = \{ z\in\mathbb{C} \,|\, \{z_j\} \mbox{ está acotada}\}$$
+            El conjunto de puntos $\mathcal{J}_{f,c}$ lo llamaremos un fractal del tipo Julia.
+            \vspace{0,1mm}
+            
+            Para ejemplificar mostraremos el conjunto de Julia, supongamos que $c=-1$ y que la función $f_c:\mathbb{C}\rightarrow\mathbb{C}$ esta definida cómo $z\mapsto z^2+c$, es decir, $f_{-1}(z)=z^2-1$.
+
+            Ahora consideremos $z=-1$ entonces, según la definición de la sucesión tenemos lo siguiente:
+            \begin{align*}
+                z_0 & =  -1 \\
+                z_1 & =  (-1)^2-1 = 0\\
+                z_2 & =  0^2-1 = -1
+            \end{align*}
+            Si siguieramos indefinidamente con la sucesión tendriamos que cada dos iteraciones $z_n = -1$, entonces la sucesión está acotada y por lo tanto $-1\in \mathcal{J}_{f,-1}$, ahora en la siguiente imagen mostraremos la gráfica del conjunto de puntos $\mathcal{J}_{f,-1}$ en el plano complejo:\\
+            \begin{center}
+                \includegraphics[width=0.5\textwidth]{Cjulia.png}
+            \end{center}
+            }
+            \justifying{
+            \vspace{0,1mm}
+            \textbf{Método de Mandelbrot}\\
+            Sea $c \in \mathbb{C}$ y $f:\mathbb{C}\rightarrow\mathbb{C}$ una función, entonces con la siguiente definición de la sucesión $\{z_n\}$ podremos formar un fractal del tipo Mandelbrot.
+            }
+
+            \hspace*{0,5cm}$i)  z_0 =  0$\\
+            \hspace*{1cm}$ii) z_{n+1} = f(z_n) + c$\\
+            \justifying{
+            Procederemos a formar el fractal con $M$ conjunto, decimos que $c\in M$ si y solo si la sucesión $\{z_n\}$ está acotada. \\
+            En cambio si $\{z_n\}$ es divergente, entonces $c \notin M$.\\
+            Para ejemplificar que es un fractal del tipo Mandelbrot usaremos el conjunto de Mandelbrot, es decir cuando $f(z) = z^2$, veamos si tomando a $c=-1$ es parte del conjunto de Mandelbrot:$|z_n| \geq M$
+            \begin{align*}
+                z_0 & =  0 \\
+                z_1 & =  0^2+(-1) = -1\\
+                z_2 & =  (-1)^2+(-1) = 0
+            \end{align*}
+            Si siguieramos indefinidamente con la sucesión tendriamos que cada dos iteraciones $z_n = 0$, entonces la sucesión está acotada y por lo tanto $-1\in M$, ahora en la siguiente imagen mostraremos el conjunto de Mandelbrot:\\
+            \begin{center}
+                \includegraphics[width=0.5\textwidth]{Mandelset.png}
+            \end{center}
+            Observe que -1 es parte del conjunto, mientras que 1 ni la unidad imaginaria son elementos del conjunto, este procedimiento se puede hacer reiteradas veces y así aumentar la precisión del fractal.
+
+            Ambos metodos son bastante similares, de hecho el procedimiento de Mandelbrot esta basado en el metodo de Julia, ádemas, recuerde que podemos tomar cualquier función mientras que su dominio y codominio sean los complejos, es decir que tenemos dos ``generadores" de fractales, fractales que podemos expresar como conjuntos.
+
+            Para la parte algebraica usaré lo visto hasta el momento en clase, es decir las definiciones de las estructuras algebraicas, la definición de base de un espacio vectorial, subespacios e isomorfismos.
+            }
+            \newpage
+            \item[3.]\textbf{Herramientas tecnológicas}
+            
+            \justifying{
+            Todas las imagenes que presenté fueron creadas por computador ya que la precisión del gráfico depende del número de iteraciones que se hagan, implementaré Python para visualizar los conjuntos y si llego a construir una estructura algebráica usaré Python para las cuentas.    
+            }
+        \end{itemize}
+    }
+\end{document}
+    
