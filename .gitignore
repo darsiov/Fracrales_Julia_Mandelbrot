@@ -1,3 +1,7 @@
 /build
+.ipynb_checkpoints
 *.jpg
 *.png
+*.cls
+*.bib
+*.pdf
